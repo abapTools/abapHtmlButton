@@ -8,7 +8,8 @@ Inspired by and expanded from the book "ABAP Cookbook"
 - MIT License 
 
 ### Installation
-install via [abapGit](https://github.com/larshp/abapGit)
+- install via [abapGit](https://github.com/larshp/abapGit)
+- install all html colors and demo buttons via report "ZHTML_BTN_INSTALL"   (optional)
 
 ### Customizing
 - Colors in DDIC-Tab "ZHTML_COLORS"  (Colorname, Hex-Code)
