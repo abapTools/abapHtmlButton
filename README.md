@@ -8,7 +8,7 @@ Inspired by and expanded from the book "ABAP Cookbook"
 - MIT License 
 
 ### Installation
-Copy the source code into a new report or install via [abapGit](https://github.com/larshp/abapGit)
+install via [abapGit](https://github.com/larshp/abapGit)
 
 ### Customizing
 - Colors in DDIC-Tab "ZHTML_COLORS"  (Colorname, Hex-Code)
