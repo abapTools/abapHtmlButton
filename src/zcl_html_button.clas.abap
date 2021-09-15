@@ -64,23 +64,27 @@ ENDCLASS.
 
 
 
-CLASS zcl_html_button IMPLEMENTATION.
+CLASS ZCL_HTML_BUTTON IMPLEMENTATION.
 
 
   METHOD build_html_code.
     DATA lv_html LIKE LINE OF ct_html.
 
     CONCATENATE
-        '<html><head><title>BUTTON</title>'
+        '<html>'
+        '<head><title>BUTTON</title>'
         '<style type="text/css">'
         'body {overflow:hidden; margin:0; }'
         'input.bgcolor { background-color:'
         iv_color
         '; width: 100%; height: 100%; font-size:large; }'
-        '</style></head><body>'
+        '</style>'
+        '</head>'
+        '<body>'
         '<input class="bgcolor" type="button" value="'
-        iv_text     '" onclick="location.href=''SAPEVENT:'
-        iv_ok_code  '''"></body></html>'
+        iv_text'" onclick="location.href=''SAPEVENT:'
+        iv_ok_code'''"></body>'
+        '</html>'
         INTO lv_html.
     APPEND lv_html TO ct_html.
 
@@ -163,6 +167,49 @@ CLASS zcl_html_button IMPLEMENTATION.
   ENDMETHOD.
 
 
+  METHOD read_btn_db.
+    SELECT SINGLE * FROM zhtml_btn_types INTO CORRESPONDING FIELDS OF s_btn_fields WHERE type EQ i_btn_type.
+  ENDMETHOD.
+
+
+  METHOD set_btn_color.
+
+    IF s_btn_fields-btn_color IS INITIAL.
+*== set default color
+      s_btn_fields-btn_color = '#F2E1AF'.
+    ENDIF.
+
+  ENDMETHOD.
+
+
+  METHOD set_controls.
+
+*    DATA lr_container TYPE REF TO cl_gui_container.
+
+    IF s_btn-cc_name <> space AND s_btn-container IS INITIAL.
+*== create custom container
+      CREATE OBJECT s_btn-container
+        TYPE
+        cl_gui_custom_container
+        EXPORTING
+          container_name = s_btn-cc_name.
+*    ELSE.
+**== use given container
+*      lr_container = s_btn-container.
+    ENDIF.
+  ENDMETHOD.
+
+
+  METHOD zif_html_button~get_btn_fields.
+
+  ENDMETHOD.
+
+
+  METHOD zif_html_button~get_btn_type.
+
+  ENDMETHOD.
+
+
   METHOD zif_html_button~set_active.
 
     DATA lt_html             TYPE ty_html_table.
@@ -220,45 +267,4 @@ CLASS zcl_html_button IMPLEMENTATION.
     mo_html->show_url( lv_url ).
 
   ENDMETHOD.
-
-  METHOD read_btn_db.
-    SELECT SINGLE * FROM zhtml_btn_types INTO CORRESPONDING FIELDS OF s_btn_fields WHERE type EQ i_btn_type.
-  ENDMETHOD.
-
-
-  METHOD set_controls.
-
-*    DATA lr_container TYPE REF TO cl_gui_container.
-
-    IF s_btn-cc_name <> space AND s_btn-container IS INITIAL.
-*== create custom container
-      CREATE OBJECT s_btn-container
-        TYPE
-        cl_gui_custom_container
-        EXPORTING
-          container_name = s_btn-cc_name.
-*    ELSE.
-**== use given container
-*      lr_container = s_btn-container.
-    ENDIF.
-  ENDMETHOD.
-
-
-  METHOD set_btn_color.
-
-    IF s_btn_fields-btn_color IS INITIAL.
-*== set default color
-      s_btn_fields-btn_color = '#F2E1AF'.
-    ENDIF.
-
-  ENDMETHOD.
-
-  METHOD zif_html_button~get_btn_fields.
-
-  ENDMETHOD.
-
-  METHOD zif_html_button~get_btn_type.
-
-  ENDMETHOD.
-
 ENDCLASS.
