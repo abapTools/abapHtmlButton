@@ -7,8 +7,5 @@
 *&
 *&---------------------------------------------------------------------*
 MODULE pbo_0100 OUTPUT.
-
     PERFORM init_html_buttons.
-
-
 ENDMODULE.
