@@ -1,7 +1,5 @@
 *---------------------------------------------------------------------*
 *    view related data declarations
-*   generation date: 30.08.2021 at 11:01:38
-*   view maintenance generator version: #001407#
 *---------------------------------------------------------------------*
 *...processing: ZHTML_BTN_TYPES.................................*
 DATA:  BEGIN OF STATUS_ZHTML_BTN_TYPES               .   "state vector
