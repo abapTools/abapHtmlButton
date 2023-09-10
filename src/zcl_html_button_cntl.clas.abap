@@ -1,3 +1,4 @@
+"! <p class="shorttext synchronized" lang="en">HTML Button CNTL</p>
 CLASS zcl_html_button_cntl DEFINITION
   PUBLIC
   FINAL
@@ -5,45 +6,51 @@ CLASS zcl_html_button_cntl DEFINITION
 
   PUBLIC SECTION.
 
+    INTERFACES zif_appl_object .
     INTERFACES zif_html_button_cntl .
 
+    ALIASES appl_type
+      FOR zif_appl_object~appl_type .
+    ALIASES o_appl_message
+      FOR zif_appl_object~o_appl_message .
     ALIASES create_btn
       FOR zif_html_button_cntl~create_btn .
+    ALIASES get_appl_type
+      FOR zif_appl_object~get_appl_type .
+    ALIASES get_btn_by_guid
+      FOR zif_html_button_cntl~get_btn_by_guid .
+    ALIASES set_appl_type
+      FOR zif_appl_object~set_appl_type .
 
+    "! <p class="shorttext synchronized" lang="en">CONSTRUCTOR</p>
     METHODS constructor .
   PROTECTED SECTION.
   PRIVATE SECTION.
-    DATA t_pointer TYPE zhtml_btn_pointer_tt.
+
+    "! <p class="shorttext synchronized" lang="en">Button Pointer</p>
+    DATA t_pointer TYPE zhtml_btn_pointer_tt .
+    DATA o_btn_db TYPE REF TO zif_appl_object_db .
+
     METHODS get_obj_btn
       IMPORTING
-        i_btn            TYPE zhtml_button
+        !i_btn           TYPE zhtml_button
       RETURNING
-        value(ro_button) TYPE REF TO zif_html_button.
-
+        VALUE(ro_button) TYPE REF TO zif_html_button .
 ENDCLASS.
 
 
 
-CLASS zcl_html_button_cntl IMPLEMENTATION.
+CLASS ZCL_HTML_BUTTON_CNTL IMPLEMENTATION.
+
 
   METHOD constructor.
 
+    o_appl_message = zcl_appl_cntl=>get_appl_message( ).
+
+    o_btn_db ?= zcl_appl_cntl=>get_single_obj( 'HTML_BUTTON_DB' ).
 
   ENDMETHOD.
 
-  METHOD zif_html_button_cntl~create_btn.
-
-    DATA: lo_button TYPE REF TO zif_html_button.
-
-    lo_button = get_obj_btn( i_btn ).
-
-
-  ENDMETHOD.
-
-  METHOD zif_html_button_cntl~get_btn_by_guid.
-
-
-  ENDMETHOD.
 
   METHOD get_obj_btn.
     DATA: lo_button  TYPE REF TO zif_html_button,
@@ -88,4 +95,19 @@ CLASS zcl_html_button_cntl IMPLEMENTATION.
 
   ENDMETHOD.
 
+
+  METHOD zif_html_button_cntl~create_btn.
+
+    DATA: lo_button TYPE REF TO zif_html_button.
+
+    lo_button = get_obj_btn( im_btn ).
+
+
+  ENDMETHOD.
+
+
+  METHOD zif_html_button_cntl~get_btn_by_guid.
+
+
+  ENDMETHOD.
 ENDCLASS.

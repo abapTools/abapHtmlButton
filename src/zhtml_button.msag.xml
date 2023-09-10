@@ -7,6 +7,20 @@
     <MASTERLANG>E</MASTERLANG>
     <STEXT>Hmtl Button</STEXT>
    </T100A>
+   <T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZHTML_BUTTON</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>html button not found</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZHTML_BUTTON</ARBGB>
+     <MSGNR>002</MSGNR>
+     <TEXT>html button &amp;1 already exists</TEXT>
+    </T100>
+   </T100>
   </asx:values>
  </asx:abap>
 </abapGit>

@@ -1,65 +1,67 @@
+"! <p class="shorttext synchronized" lang="en">HTML Button</p>
 CLASS zcl_html_button DEFINITION
   PUBLIC
   CREATE PUBLIC .
 
-  PUBLIC SECTION.
+PUBLIC SECTION.
 
-    INTERFACES zif_html_button .
+  INTERFACES zif_html_button .
 
-    ALIASES get_btn_fields
-      FOR zif_html_button~get_btn_fields .
-    ALIASES get_btn_type
-      FOR zif_html_button~get_btn_type .
-    ALIASES set_active
-      FOR zif_html_button~set_active .
-    ALIASES set_inactive
-      FOR zif_html_button~set_inactive .
+  ALIASES get_btn_fields
+    FOR zif_html_button~get_btn_fields .
+  ALIASES get_btn_type
+    FOR zif_html_button~get_btn_type .
+  ALIASES set_active
+    FOR zif_html_button~set_active .
 
-    TYPES:
-      ty_html_table TYPE STANDARD TABLE OF text1000 .
+  TYPES:
+    ty_html_table TYPE STANDARD TABLE OF text1000 .
 
-    METHODS constructor
-      IMPORTING
-        !i_btn TYPE zhtml_button .
+    "! <p class="shorttext synchronized" lang="en">CONSTRUCTOR</p>
+  METHODS constructor
+    IMPORTING
+      !i_btn TYPE zhtml_button .
   PROTECTED SECTION.
-private section.
+PRIVATE SECTION.
 
-  data MT_EVENTS type CNTL_SIMPLE_EVENTS .
-  data:
+  DATA mt_events TYPE cntl_simple_events .
+  DATA:
     ms_event       LIKE LINE OF mt_events .
-  data:
+  DATA:
     mt_html        TYPE STANDARD TABLE OF text1000
                                    WITH NON-UNIQUE DEFAULT KEY .
-  data:
+  DATA:
     mv_html        LIKE LINE OF mt_html .
-  data MV_URL type TEXT1000 .
-  data MV_COLOR type STRING .
-  data MO_CONTAINER type ref to CL_GUI_CONTAINER .
-  data MO_HTML type ref to CL_GUI_HTML_VIEWER .
-  data MV_INACTIVE type CHAR01 .
-  data S_BTN type ZHTML_BUTTON .
-  data S_BTN_FIELDS type ZHTML_BUTTON_FIELDS .
+  DATA mv_url TYPE text1000 .
+  DATA mv_color TYPE string .
+  DATA mo_container TYPE REF TO cl_gui_container .
+  DATA mo_html TYPE REF TO cl_gui_html_viewer .
+  DATA mv_inactive TYPE char01 .
+  "! <p class="shorttext synchronized" lang="en">HTML Button</p>
+  DATA s_btn TYPE zhtml_button .
+  "! <p class="shorttext synchronized" lang="en">HTML Button Fields</p>
+  DATA s_btn_fields TYPE zhtml_button_fields .
 
-  methods HANDLE_SAPEVENT
-    for event SAPEVENT of CL_GUI_HTML_VIEWER
-    importing
-      !ACTION
-      !FRAME
-      !GETDATA
-      !POSTDATA
-      !QUERY_TABLE .
-  methods BUILD_HTML_CODE
-    importing
-      !IV_TEXT type CLIKE
-      !IV_COLOR type CLIKE
-      !IV_OK_CODE type CLIKE
-    changing
-      !CT_HTML type TY_HTML_TABLE .
-  methods READ_BTN_DB
-    importing
-      !I_BTN_TYPE type ZHTML_BUTTON-BTN_TYPE .
-  methods SET_CONTROLS .
-  methods SET_BTN_COLOR .
+  METHODS handle_sapevent
+    FOR EVENT sapevent OF cl_gui_html_viewer
+    IMPORTING
+      !action
+      !frame
+      !getdata
+      !postdata
+      !query_table .
+  METHODS build_html_code
+    IMPORTING
+      !iv_text TYPE clike
+      !iv_color TYPE clike
+      !iv_ok_code TYPE clike
+    CHANGING
+      !ct_html TYPE ty_html_table .
+  METHODS read_btn_db
+    IMPORTING
+      !i_btn_type TYPE zhtml_button-btn_type .
+  METHODS set_controls .
+  METHODS set_btn_color .
 ENDCLASS.
 
 
@@ -239,9 +241,8 @@ CLASS ZCL_HTML_BUTTON IMPLEMENTATION.
   ENDMETHOD.
 
 
-  METHOD zif_html_button~set_inactive.
-
-    DATA lt_html             TYPE ty_html_table.
+  method ZIF_HTML_BUTTON~SET_INACTIVE.
+      DATA lt_html             TYPE ty_html_table.
     DATA lv_url              TYPE text1000.
 
 *== set flag for handler
@@ -252,7 +253,7 @@ CLASS ZCL_HTML_BUTTON IMPLEMENTATION.
       EXPORTING
         iv_text    = s_btn_fields-btn_text
         iv_color   = 'grey'
-        iv_ok_code = ''
+        iv_ok_code = s_btn_fields-ok_code
       CHANGING
         ct_html    = lt_html.
 
@@ -265,6 +266,5 @@ CLASS ZCL_HTML_BUTTON IMPLEMENTATION.
 
 *== show HTML page
     mo_html->show_url( lv_url ).
-
-  ENDMETHOD.
+  endmethod.
 ENDCLASS.

@@ -6,8 +6,8 @@
    <INCLUDES>
     <SOBJ_NAME>LZHTML_BUTTONF00</SOBJ_NAME>
     <SOBJ_NAME>LZHTML_BUTTONI00</SOBJ_NAME>
-    <SOBJ_NAME>LZHTML_BUTTONTOP</SOBJ_NAME>
     <SOBJ_NAME>LZHTML_BUTTONT00</SOBJ_NAME>
+    <SOBJ_NAME>LZHTML_BUTTONTOP</SOBJ_NAME>
     <SOBJ_NAME>SAPLZHTML_BUTTON</SOBJ_NAME>
    </INCLUDES>
    <FUNCTIONS>
@@ -376,6 +376,7 @@
        <CONT_NAME>TCTRL_ZHTML_COLORS</CONT_NAME>
        <TYPE>TEXT</TYPE>
        <NAME>*ZHTML_COLORS-COLOR_NAME</NAME>
+       <TEXT>Color_Name______________________________</TEXT>
        <LINE>001</LINE>
        <COLUMN>001</COLUMN>
        <LENGTH>040</LENGTH>
@@ -392,6 +393,7 @@
        <CONT_NAME>TCTRL_ZHTML_COLORS</CONT_NAME>
        <TYPE>TEXT</TYPE>
        <NAME>*ZHTML_COLORS-COLOR_CODE</NAME>
+       <TEXT>Color_Code______________________________</TEXT>
        <LINE>001</LINE>
        <COLUMN>002</COLUMN>
        <LENGTH>040</LENGTH>
@@ -459,19 +461,19 @@
        <LINE>PROCESS BEFORE OUTPUT.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE> MODULE LISTE_INITIALISIEREN.</LINE>
+       <LINE>MODULE LISTE_INITIALISIEREN.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE> LOOP AT EXTRACT WITH CONTROL</LINE>
+       <LINE>LOOP AT EXTRACT WITH CONTROL</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>  TCTRL_ZHTML_COLORS CURSOR NEXTLINE.</LINE>
+       <LINE>TCTRL_ZHTML_COLORS CURSOR NEXTLINE.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>   MODULE LISTE_SHOW_LISTE.</LINE>
+       <LINE>MODULE LISTE_SHOW_LISTE.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE> ENDLOOP.</LINE>
+       <LINE>ENDLOOP.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
        <LINE>*</LINE>
@@ -480,57 +482,84 @@
        <LINE>PROCESS AFTER INPUT.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE> MODULE LISTE_EXIT_COMMAND AT EXIT-COMMAND.</LINE>
+       <LINE>MODULE LISTE_EXIT_COMMAND AT EXIT-COMMAND.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE> MODULE LISTE_BEFORE_LOOP.</LINE>
+       <LINE>MODULE LISTE_BEFORE_LOOP.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE> LOOP AT EXTRACT.</LINE>
+       <LINE>LOOP AT EXTRACT.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>   MODULE LISTE_INIT_WORKAREA.</LINE>
+       <LINE>MODULE LISTE_INIT_WORKAREA.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>   CHAIN.</LINE>
+       <LINE>CHAIN.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>    FIELD ZHTML_COLORS-COLOR_NAME .</LINE>
+       <LINE>FIELD ZHTML_COLORS-COLOR_NAME .</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>    FIELD ZHTML_COLORS-COLOR_CODE .</LINE>
+       <LINE>FIELD ZHTML_COLORS-COLOR_CODE .</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>    MODULE SET_UPDATE_FLAG ON CHAIN-REQUEST.</LINE>
+       <LINE>MODULE SET_UPDATE_FLAG ON CHAIN-REQUEST.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>   ENDCHAIN.</LINE>
+       <LINE>ENDCHAIN.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>   FIELD VIM_MARKED MODULE LISTE_MARK_CHECKBOX.</LINE>
+       <LINE>FIELD VIM_MARKED MODULE LISTE_MARK_CHECKBOX.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>   CHAIN.</LINE>
+       <LINE>CHAIN.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>    FIELD ZHTML_COLORS-COLOR_NAME .</LINE>
+       <LINE>FIELD ZHTML_COLORS-COLOR_NAME .</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>    FIELD ZHTML_COLORS-COLOR_CODE .</LINE>
+       <LINE>FIELD ZHTML_COLORS-COLOR_CODE .</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>    MODULE LISTE_UPDATE_LISTE.</LINE>
+       <LINE>MODULE LISTE_UPDATE_LISTE.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>   ENDCHAIN.</LINE>
+       <LINE>ENDCHAIN.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE> ENDLOOP.</LINE>
+       <LINE>ENDLOOP.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE> MODULE LISTE_AFTER_LOOP.</LINE>
+       <LINE>MODULE LISTE_AFTER_LOOP.</LINE>
       </RPY_DYFLOW>
      </FLOW_LOGIC>
+     <SPACES>
+      <item>0</item>
+      <item>1</item>
+      <item>1</item>
+      <item>2</item>
+      <item>3</item>
+      <item>1</item>
+      <item>0</item>
+      <item>0</item>
+      <item>1</item>
+      <item>1</item>
+      <item>1</item>
+      <item>3</item>
+      <item>3</item>
+      <item>4</item>
+      <item>4</item>
+      <item>4</item>
+      <item>3</item>
+      <item>3</item>
+      <item>3</item>
+      <item>4</item>
+      <item>4</item>
+      <item>4</item>
+      <item>3</item>
+      <item>1</item>
+      <item>1</item>
+     </SPACES>
     </item>
     <item>
      <HEADER>
@@ -655,6 +684,7 @@
        <CONT_NAME>TCTRL_ZHTML_BTN_TYPES</CONT_NAME>
        <TYPE>TEXT</TYPE>
        <NAME>*ZHTML_BTN_TYPES-BTN_TEXT</NAME>
+       <TEXT>Button_Text_____________________________</TEXT>
        <LINE>001</LINE>
        <COLUMN>002</COLUMN>
        <LENGTH>040</LENGTH>
@@ -671,6 +701,7 @@
        <CONT_NAME>TCTRL_ZHTML_BTN_TYPES</CONT_NAME>
        <TYPE>TEXT</TYPE>
        <NAME>*ZHTML_BTN_TYPES-BTN_COLOR</NAME>
+       <TEXT>Color_Name______________________________</TEXT>
        <LINE>001</LINE>
        <COLUMN>003</COLUMN>
        <LENGTH>040</LENGTH>
@@ -687,6 +718,7 @@
        <CONT_NAME>TCTRL_ZHTML_BTN_TYPES</CONT_NAME>
        <TYPE>TEXT</TYPE>
        <NAME>*ZHTML_BTN_TYPES-OK_CODE</NAME>
+       <TEXT>Current_Function_Code___________________</TEXT>
        <LINE>001</LINE>
        <COLUMN>004</COLUMN>
        <LENGTH>040</LENGTH>
@@ -789,19 +821,19 @@
        <LINE>PROCESS BEFORE OUTPUT.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE> MODULE LISTE_INITIALISIEREN.</LINE>
+       <LINE>MODULE LISTE_INITIALISIEREN.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE> LOOP AT EXTRACT WITH CONTROL</LINE>
+       <LINE>LOOP AT EXTRACT WITH CONTROL</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>  TCTRL_ZHTML_BTN_TYPES CURSOR NEXTLINE.</LINE>
+       <LINE>TCTRL_ZHTML_BTN_TYPES CURSOR NEXTLINE.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>   MODULE LISTE_SHOW_LISTE.</LINE>
+       <LINE>MODULE LISTE_SHOW_LISTE.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE> ENDLOOP.</LINE>
+       <LINE>ENDLOOP.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
        <LINE>*</LINE>
@@ -810,60 +842,88 @@
        <LINE>PROCESS AFTER INPUT.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE> MODULE LISTE_EXIT_COMMAND AT EXIT-COMMAND.</LINE>
+       <LINE>MODULE LISTE_EXIT_COMMAND AT EXIT-COMMAND.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE> MODULE LISTE_BEFORE_LOOP.</LINE>
+       <LINE>MODULE LISTE_BEFORE_LOOP.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE> LOOP AT EXTRACT.</LINE>
+       <LINE>LOOP AT EXTRACT.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>   MODULE LISTE_INIT_WORKAREA.</LINE>
+       <LINE>MODULE LISTE_INIT_WORKAREA.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>   CHAIN.</LINE>
+       <LINE>CHAIN.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>    FIELD ZHTML_BTN_TYPES-TYPE .</LINE>
+       <LINE>FIELD ZHTML_BTN_TYPES-TYPE .</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>    FIELD ZHTML_BTN_TYPES-BTN_TEXT .</LINE>
+       <LINE>FIELD ZHTML_BTN_TYPES-BTN_TEXT .</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>    FIELD ZHTML_BTN_TYPES-BTN_COLOR .</LINE>
+       <LINE>FIELD ZHTML_BTN_TYPES-BTN_COLOR .</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>    FIELD ZHTML_BTN_TYPES-OK_CODE .</LINE>
+       <LINE>FIELD ZHTML_BTN_TYPES-OK_CODE .</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>    MODULE SET_UPDATE_FLAG ON CHAIN-REQUEST.</LINE>
+       <LINE>MODULE SET_UPDATE_FLAG ON CHAIN-REQUEST.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>   ENDCHAIN.</LINE>
+       <LINE>ENDCHAIN.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>   FIELD VIM_MARKED MODULE LISTE_MARK_CHECKBOX.</LINE>
+       <LINE>FIELD VIM_MARKED MODULE LISTE_MARK_CHECKBOX.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>   CHAIN.</LINE>
+       <LINE>CHAIN.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>    FIELD ZHTML_BTN_TYPES-TYPE .</LINE>
+       <LINE>FIELD ZHTML_BTN_TYPES-TYPE .</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>    MODULE LISTE_UPDATE_LISTE.</LINE>
+       <LINE>MODULE LISTE_UPDATE_LISTE.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>   ENDCHAIN.</LINE>
+       <LINE>ENDCHAIN.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE> ENDLOOP.</LINE>
+       <LINE>ENDLOOP.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE> MODULE LISTE_AFTER_LOOP.</LINE>
+       <LINE>MODULE LISTE_AFTER_LOOP.</LINE>
       </RPY_DYFLOW>
      </FLOW_LOGIC>
+     <SPACES>
+      <item>0</item>
+      <item>1</item>
+      <item>1</item>
+      <item>2</item>
+      <item>3</item>
+      <item>1</item>
+      <item>0</item>
+      <item>0</item>
+      <item>1</item>
+      <item>1</item>
+      <item>1</item>
+      <item>3</item>
+      <item>3</item>
+      <item>4</item>
+      <item>4</item>
+      <item>4</item>
+      <item>4</item>
+      <item>4</item>
+      <item>3</item>
+      <item>3</item>
+      <item>3</item>
+      <item>4</item>
+      <item>4</item>
+      <item>3</item>
+      <item>1</item>
+      <item>1</item>
+     </SPACES>
     </item>
    </DYNPROS>
   </asx:values>
